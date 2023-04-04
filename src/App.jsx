@@ -4,8 +4,8 @@ import QrScanner from 'react-qr-scanner';
 function MyComponent() {
 
     const getCruBySlug = (slug) => {
-        const query = `?name=${encodeURIComponent(name)}`;
-        const url = `http://localhost:8000/api/crus${query}`;
+        const query = `?name=${encodeURIComponent(slug)}`;
+        const url = `http://localhost:8000/api/cruses${query}`;
         return fetch(url,  {credentials: "include"}).then((response) => response.json());
     };
     const  result = getCruBySlug();
@@ -18,12 +18,13 @@ function MyComponent() {
                 getCruBySlug(urls)
                     .then((req) => {
                         setResult(req[0]);
+                        window.location.href = "http://localhost:5173/vignoble/%22"+req[0].id;
                     })
                     .catch(() => {
-                        setError(true);
+                        /*setError(true);*/
                     });
             }
-            window.location.href="http://localhost:8000/vignoble/"+url;
+            /*window.location.href="http://localhost:8000/vignoble/"+url;*/
         }
     };
 
