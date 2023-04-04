@@ -1,29 +1,27 @@
 import QrScanner from 'react-qr-scanner';
-
+import {useState} from "react";
 
 function MyComponent() {
-
-    const getCruBySlug = (slug) => {
-        const query = `?name=${encodeURIComponent(name)}`;
-        const url = `http://localhost:8000/api/crus${query}`;
-        return fetch(url,  {credentials: "include"}).then((response) => response.json());
-    };
-    const  result = getCruBySlug();
+    const [isLoading, setLoading] = useState(false);
 
     const handleScan = (data) => {
         if (data) {
             let url = data.text.split('/');
             let urls = url[url.length - 1];
-            if (result !== urls) {
-                getCruBySlug(urls)
+            if (result !== urls && !isLoading) {
+                setLoading(true);
+
+                getCruBySlug(qrcode)
                     .then((req) => {
                         setResult(req[0]);
+                        setLoading(false);
                     })
                     .catch(() => {
                         setError(true);
+                        setLoading(false);
                     });
             }
-            window.location.href="http://localhost:8000/vignoble/"+url;
+            window.location.href="localhost:173/vignoble/"+url;
         }
     };
 
@@ -46,4 +44,4 @@ function MyComponent() {
 }
 
 
-export default MyComponent
+export default App
