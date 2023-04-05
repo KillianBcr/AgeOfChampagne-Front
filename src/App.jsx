@@ -1,32 +1,24 @@
-import { BrowserRouter as Router } from 'react-router-dom';
 import React from 'react';
-import QrScanner from 'react-qr-scanner';
-import Navbar from "./components/Navbar";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import UserProvider from './contexts/user/Provider';
+import Navbar from "./components/Navbar";
+import LoginForm from "./components/LoginForm";
 
 function App() {
-  const handleScan = (data) => {
-      console.log(data)
-  }
-
-  const handleError = (error) => {
-      console.log(error);
-  }
-
   return (
-    <Router>
-      <>
-        <Navbar />
-        <div className="App">
-          <QrScanner
-            id={"camera"}
-            delay={100}
-            onError={handleError}
-            onScan={handleScan}
-            facingMode="rear" />
-        </div>
-      </>
-    </Router>
+    <UserProvider>
+      <Router>
+        <>
+          <Navbar />
+          <div className="App">
+            <Routes>
+              <Route path="/login" element={<LoginForm />} />
+              <Route path="/scan" element={<LoginForm />} />
+            </Routes>
+          </div>
+        </>
+      </Router>
+    </UserProvider>
   );
 }
 

@@ -1,13 +1,14 @@
-import { Route, Switch } from 'react-router-dom';
-import LoginForm from './components/LoginForm';
+import React from "react";
+import { Route, Routes } from 'react-router-dom';
+import LoginForm from "./components/LoginForm";
+import LoginForm from "./components/QrScanner";
 
 function App() {
   return (
-    <div className="App">
-      <Switch>
-        {/* Autres routes */}
-        <Route path="/login" component={LoginForm} />
-      </Switch>
+    <div>
+      <Routes>
+        <Route path="/login" element={<LoginForm />} />
+      </Routes>
     </div>
   );
 }

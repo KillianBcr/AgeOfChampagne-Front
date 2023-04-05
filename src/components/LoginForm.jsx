@@ -1,43 +1,61 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext,useState } from 'react';
+import { BASE_URL } from '../services/api/users';
+import { UserContext } from '../services/api/users';
 
-function LoginForm() {
-  const navigate = useNavigate();
+const LoginForm = () => {
+const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+const { setUser } = useContext(UserContext);
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+const handleEmailChange = (event) => {
+setEmail(event.target.value);
+};
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // TODO: Handle form submission, e.g. make a request to a server API
+const handlePasswordChange = (event) => {
+setPassword(event.target.value);
+};
 
-    // Navigate to the home page on successful login
-    navigate('/');
-  };
+const handleSubmit = (event) => {
+event.preventDefault();
+fetch(`${BASE_URL}login`, {
+  method: 'POST',
+  credentials: 'include',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    email: email,
+    password: password,
+  }),
+})
+  .then((response) => {
+    if (response.ok) {
+      return response.json();
+    } else {
+      throw new Error('Login failed.');
+    }
+  })
+  .then((data) => {
+    setUser(data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+};
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="email">Email:</label>
-      <input
-        type="email"
-        id="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        required
-      />
-
-      <label htmlFor="password">Password:</label>
-      <input
-        type="password"
-        id="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
-
-      <button type="submit">Log in</button>
-    </form>
-  );
-}
+return (
+<form onSubmit={handleSubmit}>
+<label>
+Email:
+<input type="email" value={email} onChange={handleEmailChange} />
+</label>
+<label>
+Password:
+<input type="password" value={password} onChange={handlePasswordChange} />
+</label>
+<button type="submit">Submit</button>
+</form>
+);
+};
 
 export default LoginForm;
