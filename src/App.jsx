@@ -1,6 +1,8 @@
 import React from 'react';
 import QrScanner from 'react-qr-scanner';
 import Navbar from "./components/Navbar";
+import UserProvider from './contexts/user/Provider';
+
 
 
 function App() {
