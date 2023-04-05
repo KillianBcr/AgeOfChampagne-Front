@@ -25,13 +25,13 @@ function Navbar() {
 
   return (
     <header>
-      <img src="src\assets\logo.svg" alt="Logo" className="logo-img" />
+      <a href="/"><img src="src\assets\logo.svg" alt="Logo" className="logo-img" /></a>
       <nav ref={navRef}>
         <a href="/">Accueil</a>
         <a href="/scan">Scan</a>
-        <button className="nav-link" onClick={handleLogin}>
+        <a className="nav-link" onClick={handleLogin}>
           {userData ? "Déconnexion" : "Connexion"}
-        </button>
+        </a>
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <FaTimes />
         </button>
