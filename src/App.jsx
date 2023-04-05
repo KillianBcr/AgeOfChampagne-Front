@@ -11,8 +11,8 @@ function App() {
       <Router>
         <>
           <Navbar />
-          <div className="App">
-            <Routes>
+          <div className="App">           
+          <Routes>
               <Route path="/login" element={<LoginForm />} />
               <Route path="/scan" element={<Qrcode />} />
             </Routes>

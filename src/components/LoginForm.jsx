@@ -1,6 +1,8 @@
 import React, { useContext,useState } from 'react';
 import { BASE_URL } from '../services/api/users';
 import { UserContext } from '../services/api/users';
+import "../Styles/login.css";
+
 
 const LoginForm = () => {
 const [email, setEmail] = useState('');
@@ -46,14 +48,14 @@ fetch(`${BASE_URL}login`, {
 return (
 <form onSubmit={handleSubmit}>
 <label>
-Email:
+Email
 <input type="email" value={email} onChange={handleEmailChange} />
 </label>
 <label>
-Password:
+Password
 <input type="password" value={password} onChange={handlePasswordChange} />
 </label>
-<button type="submit">Submit</button>
+<button type="submit">Connexion</button>
 </form>
 );
 };
