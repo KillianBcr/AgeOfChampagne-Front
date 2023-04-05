@@ -6,7 +6,7 @@ function MyComponent() {
     const getCruBySlug = (slug) => {
         const query = `?name=${encodeURIComponent(slug)}`;
         const url = `http://localhost:8000/api/cruses${query}`;
-        return fetch(url,  {credentials: "include"}).then((response) => response.json());
+        return fetch(url,  {credentials: "include",method: "GET"}).then((response) => response.json());
     };
     const  result = getCruBySlug();
 
@@ -24,7 +24,6 @@ function MyComponent() {
                         /*setError(true);*/
                     });
             }
-            /*window.location.href="http://localhost:8000/vignoble/"+url;*/
         }
     };
 
