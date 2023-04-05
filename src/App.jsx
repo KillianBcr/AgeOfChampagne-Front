@@ -1,5 +1,6 @@
-import './App.css'
+import React from 'react';
 import QrScanner from 'react-qr-scanner';
+import Navbar from "./components/Navbar";
 
 
 function App() {
@@ -12,15 +13,20 @@ function App() {
     }
 
   return (
-    <div className="App">
-        <QrScanner
-            id={"camera"}
-            delay={100}
-            onError={handleError}
-            onScan={handleScan}
-            facingMode="rear"
-        />
-    </div>
+    <>
+      <React.Fragment>
+          <Navbar />
+      </React.Fragment>
+
+      <div className="App">
+              <QrScanner
+                  id={"camera"}
+                  delay={100}
+                  onError={handleError}
+                  onScan={handleScan}
+                  facingMode="rear" />
+        </div>
+    </>
   )
 }
 
