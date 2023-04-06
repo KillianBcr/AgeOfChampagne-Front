@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import UserProvider from './contexts/user/Provider';
 import Navbar from "./components/Navbar";
+import LoginForm from "./components/LoginForm";
 import Qrcode from "./components/Qrcode";
-import Collection from "./components/Collection";
 
 function App() {
   return (
@@ -11,10 +11,11 @@ function App() {
       <Router>
         <>
           <Navbar />
-          <div className="App">           
-          <Routes>
-              <Route path="/scan" element={<Qrcode />} />
-              <Route path="/collection" element={<Collection />} />
+          <div className="App">
+            <Routes>
+              <Route path="/login" element={<LoginForm />} />
+              <Route path="/scan" element={<LoginForm />} />
+              <Route path="/scanner" element={<Qrcode />}/>
             </Routes>
           </div>
         </>
