@@ -1,26 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { BASE_URL } from '../services/api/users';
+import { fetchCollections } from '../services/api/collection';
 
 const Collection = () => {
   const [collections, setCollections] = useState([]);
 
   useEffect(() => {
-    fetch(`${BASE_URL}collections`, {
-      method: 'GET',
-      credentials: 'include',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Failed to fetch collections.');
-        }
-      })
-      .then((data) => {
-        setCollections(data.collections);
+    fetchCollections()
+      .then((collections) => {
+        setCollections(collections);
       })
       .catch((error) => {
         console.error(error);
