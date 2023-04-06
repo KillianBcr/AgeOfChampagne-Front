@@ -4,6 +4,7 @@ import UserProvider from './contexts/user/Provider';
 import Navbar from "./components/Navbar";
 import LoginForm from "./components/LoginForm";
 import Qrcode from "./components/Qrcode";
+import CarteDetails from "./components/CarteDetails";
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
           <Routes>
               <Route path="/login" element={<LoginForm />} />
               <Route path="/scan" element={<Qrcode />} />
+              <Route path="/carte" element={<Carte />} />
+              <Route path="/carte/:id" component={CarteDetails} />
             </Routes>
           </div>
         </>
