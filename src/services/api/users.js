@@ -17,17 +17,16 @@ export function getMe()
 }
 
 
-export function loginUrl(redirect)
+export function loginUrl(redirect = window.location.href)
 {
-    return `${BASE_URL}/login?redirect=${redirect}`;
+    return `${BASE_URL}/login?redirect=${encodeURIComponent(redirect)}`;
 }
-
 export function registerUrl(redirect)
 {
     return `${BASE_URL}/register?redirect=${redirect}`;
 }
 
-export function logoutUrl()
+export function logoutUrl(redirect = window.location.href)
 {
-    return `${BASE_URL}/logout`;
+    return `${BASE_URL}/logout?redirect=${encodeURIComponent(redirect)}`;
 }
