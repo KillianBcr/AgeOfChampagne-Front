@@ -6,7 +6,7 @@ const CarteDetails = ({ match }) => {
   useEffect(() => {
     const fetchCarte = async () => {
       try {
-        const response = await fetch(`http://localhost:5173/carte/${match.params.id}`);
+        const response = await fetch(`https://127.0.0.1:8000/carte/${match.params.id}`);
         const data = await response.json();
         setCarte(data);
       } catch (error) {

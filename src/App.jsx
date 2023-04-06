@@ -16,7 +16,6 @@ function App() {
           <Routes>
               <Route path="/login" element={<LoginForm />} />
               <Route path="/scan" element={<Qrcode />} />
-              <Route path="/carte" element={<Carte />} />
               <Route path="/carte/:id" component={CarteDetails} />
             </Routes>
           </div>
