@@ -16,7 +16,7 @@ const Home = () => {
                     <img class="icone" src="src/assets/Icones/jeux-de-cartes.png" alt="jeux de cartes"></img>
                     <p>Votre collection</p>
                 </a>
-                <a class="icone-texte">
+                <a href="/map" class="icone-texte">
                     <img class="icone" src="src/assets/Icones/carte.png" alt="carte"></img>
                     <p>Carte des vignobles</p>
                 </a>
