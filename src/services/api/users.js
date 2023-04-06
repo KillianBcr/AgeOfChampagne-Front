@@ -7,7 +7,7 @@ export const UserContext = React.createContext({});
 
 
 export function getMe() {
-    return fetch(`${BASE_URL}api/me`, { credentials: "include" })
+    return fetch(`${BASE_URL}/me`, { credentials: "include" })
         .then((response) => {
             if (response.ok) {
                 return response.json();
@@ -24,9 +24,9 @@ export function getMe() {
 
 export function loginUrl() {
     const redirectUrl = encodeURIComponent(window.location.href);
-    return `${BASE_URL}login`;
+    return `${BASE_URL}/login`;
 }
 
 export function logoutUrl() {
-    return `${BASE_URL}logout`;
+    return `${BASE_URL}/logout`;
 }
