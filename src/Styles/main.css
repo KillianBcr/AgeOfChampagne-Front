@@ -5,6 +5,7 @@
 	margin: 0;
 	box-sizing: border-box;
 	font-family: "Titillium Web", sans-serif;
+
 }
 
 :root {
@@ -50,6 +51,7 @@ header div,
 nav {
 	display: flex;
 	align-items: center;
+	z-index: 1000;
 }
 
 .logo-img {
