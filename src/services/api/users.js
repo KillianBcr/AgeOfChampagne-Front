@@ -22,6 +22,11 @@ export function loginUrl(redirect)
     return `${BASE_URL}/login?redirect=${redirect}`;
 }
 
+export function registerUrl(redirect)
+{
+    return `${BASE_URL}/register?redirect=${redirect}`;
+}
+
 export function logoutUrl()
 {
     return `${BASE_URL}/logout`;
