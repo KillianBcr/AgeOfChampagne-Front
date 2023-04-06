@@ -8,6 +8,7 @@ function App() {
     <div>
       <Routes>
         <Route path="/scan" element={<Qrcode />} />
+        <Route path="/collection" element={<Collection />} />
       </Routes>
     </div>
   );
