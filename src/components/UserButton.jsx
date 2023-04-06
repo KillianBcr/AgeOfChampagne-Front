@@ -1,31 +1,32 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { UserContext } from "../contexts/user/index";
-import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faKey, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { loginUrl, logoutUrl, registerUrl } from "../services/api/users";
 
 function UserButton() {
-  const { userData } = useContext(UserContext) ?? { userData: null };
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-    // Logique de déconnexion
-    navigate("/login");
-  };
-
-  if (userData === undefined) {
-    return <div>Loading...</div>;
-  } else if (userData === null) {
-    return (
-      <button onClick={() => navigate("/login")} className="nav-link">
-        Connexion
-      </button>
-    );
-  } else {
-    return (
-      <button onClick={handleLogout} className="nav-link">
-        {userData.nom}
-      </button>
-    );
+    const dataUser = useContext(UserContext);
+  
+    if (dataUser['userData'] === undefined) {
+      return <FontAwesomeIcon icon={faSpinner} className="foldable-icon" />;
+    } else if (dataUser['userData'] === null) {
+      return (
+        <>
+          <a href={loginUrl()}>
+            Connexion
+          </a>
+          <a href={registerUrl()}>
+            Inscription
+          </a>
+        </>
+      );
+    } else {
+      return (
+        <a href={logoutUrl()}>
+          Deconnexion
+        </a>
+      );
+    }
   }
-}
-
-export default UserButton;
+  
+  export default UserButton;

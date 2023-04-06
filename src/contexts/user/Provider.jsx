@@ -1,26 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { UserContext, getMe } from "../../services/api/users";
+import { getMe } from "../../services/api/users";
+import { UserContext } from "./index.js";
+import { useState, useEffect } from "react";
 
-const UserProvider = ({ children }) => {
-    const [userData, setUserData] = useState(undefined);
+function UserProvider({ children }) {
+  const [userData, setUserData] = useState(null);
 
-    useEffect(() => {
-        getMe()
-            .then((data) => {
-                setUserData(data);
-            })
-            .catch((err) => {
-                if (err.response.status === 401) {
-                    setUserData(null);
-                }
-            });
-    }, []);
+  useEffect(() => {
+    getMe().then((data) => {
+      if (data === null) {
+        setUserData(null);
+      } else {
+        setUserData(data);
+      }
+    });
+  }, []);
 
-    const contextValue = {
-        userData,
-    };
-
-    return <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>;
-};
+  return (
+    <UserContext.Provider value={{ userData, setUserData }}>
+      {children}
+    </UserContext.Provider>
+  );
+}
 
 export default UserProvider;
