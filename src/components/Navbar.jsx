@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../contexts/user/index";
 import "../Styles/main.css";
+import UserButton from "./UserButton";
+
+
 
 function Navbar() {
   const navRef = useRef();
@@ -14,23 +17,15 @@ function Navbar() {
     navRef.current.classList.toggle("responsive_nav");
   };
 
-  const handleLogin = () => {
-    if (userData) {
-      // Déconnecter l'utilisateur
-    } else {
-      // Rediriger vers le formulaire de connexion
-      navigate('/login');
-    }
-  };
 
   return (
     <header>
-      <img src="src\assets\logo.svg" alt="Logo" className="logo-img" />
+      <a href="/"><img src="src\assets\logo.svg" alt="Logo" className="logo-img" /></a>
       <nav ref={navRef}>
         <a href="/">Accueil</a>
-        <button className="nav-link" onClick={handleLogin}>
-          {userData ? "Déconnexion" : "Connexion"}
-        </button>
+        <a href="/collection">Collection</a>
+        <a href="/scan">Scan</a>
+        <UserButton/>
         <button className="nav-btn nav-close-btn" onClick={showNavbar}>
           <FaTimes />
         </button>
