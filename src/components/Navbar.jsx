@@ -28,6 +28,7 @@ function Navbar() {
       <a href="/"><img src="src\assets\logo.svg" alt="Logo" className="logo-img" /></a>
       <nav ref={navRef}>
         <a href="/">Accueil</a>
+        <a href="/collection">Collection</a>
         <a href="/scan">Scan</a>
         <a className="nav-link" onClick={handleLogin}>
           {userData ? "Déconnexion" : "Connexion"}
