@@ -1,5 +1,6 @@
 import React from 'react';
 import "../Styles/home.css";
+import { loginUrl, logoutUrl, registerUrl } from "../services/api/users";
 
 const Home = () => {
     return (
@@ -20,7 +21,10 @@ const Home = () => {
                     <p>Carte des vignobles</p>
                 </a>
             </div>
-            <a class="button">Deconnexion</a>
+
+            <a class="button" href={loginUrl()}>
+            Commencer
+            </a>
         </div>
     );
 };
