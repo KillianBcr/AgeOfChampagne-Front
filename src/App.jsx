@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Qrcode from "./components/Qrcode";
 import CarteDetails from "./components/CarteDetails";
 import Collection from "./components/Collection";
+import Map from "./components/Map.jsx"
 import Home from './components/Home';
 
 

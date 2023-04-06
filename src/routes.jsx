@@ -5,6 +5,7 @@ import LoginForm from "./components/Qrcode";
 import CarteDetails from "./components/CarteDetails";
 import Collection from "./components/Collection";
 import Home from './components/Home';
+import Map from "./components/Map";
 
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
         <Route path="/login" element={<LoginForm />} />
         <Route path="/scan" element={<Qrcode />} />
         <Route path="/collection" element={<Collection />} />
-        <Route path="/collection" element={<Collection />} />
+        <Route path="/map" element={<Map />} />
         <Route path="/carte/:id" component={CarteDetails} />
       </Routes>
     </div>
