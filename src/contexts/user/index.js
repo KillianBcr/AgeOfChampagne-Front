@@ -1,6 +1,8 @@
-import { createContext } from "react";
-import { getMe, loginUrl, logoutUrl } from "../../services/api/users.js";
+import { createContext, useState } from "react";
 
-const UserContext = createContext(null);
+const UserContext = createContext({
+  userData: null,
+  setUserData: () => {},
+});
 
-export { getMe, loginUrl, logoutUrl, UserContext };
+export { UserContext, useState };
