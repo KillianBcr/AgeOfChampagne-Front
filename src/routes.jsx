@@ -7,7 +7,6 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path="/login" element={<LoginForm />} />
         <Route path="/scan" element={<Qrcode />} />
       </Routes>
     </div>
