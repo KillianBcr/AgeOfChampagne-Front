@@ -4,8 +4,11 @@ import { loginUrl, logoutUrl, registerUrl } from "../services/api/users";
 
 const Home = () => {
     return (
-        <div><div class="background"></div>
-            <img class="AOCpng" src="src/assets/AOC_White.svg" alt="Logo"></img>
+        <div>
+            <div class="background"></div>
+            <a href="https://www.ageofchampagne.fr/" target="_blank" rel="noreferrer">
+                <img class="AOCpng" src="src/assets/AOC_White.svg" alt="Logo"></img>
+            </a>
 
             <div class="Icones">
                 <a href="/scan" class="icone-texte">
@@ -16,17 +19,17 @@ const Home = () => {
                     <img class="icone" src="src/assets/Icones/jeux-de-cartes.png" alt="jeux de cartes"></img>
                     <p>Votre collection</p>
                 </a>
-                <a class="icone-texte">
+                <a href="/map" class="icone-texte">
                     <img class="icone" src="src/assets/Icones/carte.png" alt="carte"></img>
                     <p>Carte des vignobles</p>
                 </a>
             </div>
 
             <a class="button" href={loginUrl()}>
-            Commencer
+                Commencer
             </a>
         </div>
     );
 };
 
-export default Home;    
+export default Home;

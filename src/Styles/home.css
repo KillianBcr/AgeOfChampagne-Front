@@ -4,6 +4,7 @@
     margin-top: 2%;
     margin-bottom: 5%;
     width: 15%;
+
   }
   
 .Icones {
@@ -46,6 +47,7 @@
 
 .button:hover, a.icone-texte:hover {
     background-color: rgb(94, 88, 88);
+    transform: scale(1.2);
 }
 
 a.icone-texte{
@@ -71,7 +73,6 @@ a.icone-texte{
         flex-direction: column;
     }
   }
-  
 
 
 
